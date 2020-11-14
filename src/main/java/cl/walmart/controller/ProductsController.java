@@ -26,7 +26,7 @@ public class ProductsController {
 	
 	@GetMapping(produces = "application/json" )
 	public Page<Product> list(
-			@RequestParam(required = false) String searchValue,
+			@RequestParam(required = false,defaultValue = "") String searchValue,
 			@RequestParam(defaultValue = "0") int page, 
 			@RequestParam(defaultValue = "20") int size) {
 		
