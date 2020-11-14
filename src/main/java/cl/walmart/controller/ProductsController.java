@@ -77,6 +77,7 @@ public class ProductsController {
 	 * @return
 	 */
 	private boolean checkPalindrome(String searchValue) {
+		if(searchValue == null ) return false;
 		String reverse = "";
 	    for (int i = searchValue.length() - 1; i >= 0; i--)
 	        reverse = reverse + searchValue.charAt(i);
