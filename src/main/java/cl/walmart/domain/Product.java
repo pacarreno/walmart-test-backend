@@ -14,6 +14,9 @@ public class Product {
 	private String image;
 	private String price;
 	
+	transient private boolean palindrome;
+	transient private String orginalPrice;
+	
 	public String get_id() {
 		return _id;
 	}
@@ -49,6 +52,18 @@ public class Product {
 	}
 	public void setPrice(String price) {
 		this.price = price;
+	}
+	public boolean isPalindrome() {
+		return palindrome;
+	}
+	public void setPalindrome(boolean palindrome) {
+		this.palindrome = palindrome;
+	}
+	public String getOrginalPrice() {
+		return orginalPrice;
+	}
+	public void setOrginalPrice(String orginalPrice) {
+		this.orginalPrice = orginalPrice;
 	}
 	@Override
 	public String toString() {
