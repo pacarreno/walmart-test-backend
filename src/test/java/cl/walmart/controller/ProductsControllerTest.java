@@ -108,5 +108,37 @@ class ProductsControllerTest {
         assertNotNull(body);
         
 	}
+	
+	@Test
+	void test_valid_checkpalindrome() {
+		ProductsController productController = new ProductsController();
+		
+		String validPalindrome1 = "1";
+		String validPalindrome2 = "131";
+		String validPalindrome3 = "a";
+		String validPalindrome4 = "asdsa";
+		
+		assertTrue(productController.checkPalindrome(validPalindrome1));
+		assertTrue(productController.checkPalindrome(validPalindrome2));
+		assertTrue(productController.checkPalindrome(validPalindrome3));
+		assertTrue(productController.checkPalindrome(validPalindrome4));
+		
+	}
+	
+	@Test
+	void test_invalid_checkpalindrome() {
+		ProductsController productController = new ProductsController();
+		
+		String invalidPalindrome1 = "12";
+		String invalidPalindrome2 = "1321";
+		String invalidPalindrome3 = "ab";
+		String invalidPalindrome4 = "ajdsa";
+		
+		assertTrue(!productController.checkPalindrome(invalidPalindrome1));
+		assertTrue(!productController.checkPalindrome(invalidPalindrome2));
+		assertTrue(!productController.checkPalindrome(invalidPalindrome3));
+		assertTrue(!productController.checkPalindrome(invalidPalindrome4));
+		
+	}
 
 }

@@ -34,7 +34,7 @@ public class ProductsController {
 		if( size > 20)
 			size = 20;
 		
-		System.out.println("searchValue "+searchValue+" page "+page+" size "+size);
+		//System.out.println("searchValue "+searchValue+" page "+page+" size "+size);
 		
 		//verifica que sea palindromo
 		boolean isPalindrome = checkPalindrome(searchValue);
@@ -55,7 +55,7 @@ public class ProductsController {
 			//intenta realizar por el termino
 		}
 			
-		Page<Product> result = productRepository.findByBrandRegexOrDescriptionRegex(searchValue,PageRequest.of(page, size));
+		Page<Product> result = productRepository.findByBrandRegexOrDescriptionRegex(searchValue,searchValue,PageRequest.of(page, size));
 		
 		for (Product product : result) {
 			if(isPalindrome) {
@@ -66,7 +66,7 @@ public class ProductsController {
 		}
 		
 		
-		System.out.println("getNumberOfElements "+result.getNumberOfElements()+" getNumber "+result.getNumber()+" getTotalElements "+result.getTotalElements());
+		//System.out.println("getNumberOfElements "+result.getNumberOfElements()+" getNumber "+result.getNumber()+" getTotalElements "+result.getTotalElements());
 		
 		return result;
 	}
@@ -76,7 +76,7 @@ public class ProductsController {
 	 * @param searchValue
 	 * @return
 	 */
-	private boolean checkPalindrome(String searchValue) {
+	protected boolean checkPalindrome(String searchValue) {
 		if(searchValue == null ) return false;
 		String reverse = "";
 	    for (int i = searchValue.length() - 1; i >= 0; i--)
